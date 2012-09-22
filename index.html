@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>おかたいま〜</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/static/okatimer.css"></link>
+		<script src="/static/jquery-1.8.2.min.js"></script>
+		<link rel="stylesheet" href="/static/jquery.mobile-1.1.1.min.css"></link>
+		<script src="/static/jquery.mobile-1.1.1.min.js"></script>
+		<script src="/static/okatimer.js"></script>
+	</head>
+	<body>
+	
+		<!-- input page -->
+		<div id="input_page" data-role="page">
+		
+			<!-- header -->
+			<div data-role="header" data-theme="c">
+				<h1> </h1>
+			</div>
+			
+			<!-- content -->
+			<div data-role="content" data-theme="b">
+				<form>
+					
+					<!-- task name -->
+					<div data-role="fieldcontain">
+						<label for="task">やること: </label>
+						<input id="task" type="text" name="task"></input>
+					</div>
+					
+					<!-- target time -->
+					<div data-role="fieldcontain">
+						<label>制限時間: </label>
+						<fieldset data-role="controlgroup" data-type="horizontal">
+						
+							<!-- hour -->
+							<select data-theme="c" name="hour" id="hour">
+								<option value="0">0 時間</option>
+								<option value="1">1 時間</option>
+								<option value="2">2 時間</option>
+								<option value="3">3 時間</option>
+								<option value="4">4 時間</option>
+								<option value="5">5 時間</option>
+								<option value="6">6 時間</option>
+								<option value="7">7 時間</option>
+								<option value="8">8 時間</option>
+								<option value="9">9 時間</option>
+								<option value="10">10 時間</option>
+								<option value="11">11 時間</option>
+								<option value="12">12 時間</option>
+								<option value="13">13 時間</option>
+								<option value="14">14 時間</option>
+								<option value="15">15 時間</option>
+								<option value="16">16 時間</option>
+								<option value="17">17 時間</option>
+								<option value="18">18 時間</option>
+								<option value="19">19 時間</option>
+								<option value="20">20 時間</option>
+								<option value="21">21 時間</option>
+								<option value="22">22 時間</option>
+								<option value="23">23 時間</option>
+								<option value="24">24 時間</option>
+							</select>
+							
+							<!-- min -->
+							<select data-theme="c" name="min" id="min">
+								<option value="0">0 分</option>
+								<option value="5">5 分</option>
+								<option value="10">10 分</option>
+								<option value="15">15 分</option>
+								<option value="20">20 分</option>
+								<option value="25">25 分</option>
+								<option value="30">30 分</option>
+								<option value="35">35 分</option>
+								<option value="40">40 分</option>
+								<option value="45">45 分</option>
+								<option value="50">50 分</option>
+								<option value="55">55 分</option>
+							</select>
+						</fieldset>
+						
+						<hr/>
+						
+					</div>
+				</form>
+				
+				<!-- start button -->
+				<a id="start" href="#start_page" data-role="button" data-inline="true" data-transition="flip">スタート</a>
+			</div>
+
+			<!-- footer -->
+			<div data-role="footer" data-theme="c"><h1>Copyright &copy; 2012 yuta.okano@gmail.com</h1></div>
+		</div>
+		
+		
+		
+		<!-- start_page -->
+		<div id="start_page" data-role="page">
+			<!-- header -->
+			<div data-role="header" data-theme="c">
+				<a data-rel="back" data-icon="arrow-l">戻る</a>
+				<h1> </h1>
+			</div>
+			
+			<!-- content -->
+			<div data-role="content" data-theme="b">
+				<h1 id="task"></h1>
+				<div id="timer">
+					<span id="hour"></span><span class="mini">時間</span>
+					<span id="min"></span><span class="mini">分</span>
+					<span id="sec"></span><span class="mini">秒</span>
+				</div>
+				<div id="target" class="mini">
+						目標：<span id="target_hour"></span>時間 <span id="target_min"></span>分 <span id="target_sec"></span>秒
+				</div>
+				<form>
+					<select id="stop" data-role="slider">
+						<option value="active">実行中</option>
+						<option value="inactive">停止中</option>
+					</select>
+				</form>
+			</div>
+
+			<!-- footer -->
+			<div data-role="footer" data-theme="c"><h1>Copyright &copy; 2012 yuta.okano@gmail.com</h1></div>
+		</div>
+
+	</body>
+</html>

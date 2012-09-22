@@ -1,0 +1,38 @@
+#input_page #start {
+	margin: auto;
+}
+
+#start_page #task {
+	text-align: center;
+	font-size: 250%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+#start_page #timer {
+	text-align: center;
+	font-size: 250%;
+	margin-bottom: 2%;
+}
+
+#start_page #target {
+	text-align: center;
+	font-size: 100%;
+}
+
+#start_page form {
+	margin-top: 3%;
+	text-align: center;
+}
+
+.mini {
+	font-size: 50%;
+}
+
+.over {
+	color: crimson;
+}
+
+.stopped {
+	color: gray;
+}
