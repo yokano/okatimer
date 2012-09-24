@@ -44,7 +44,7 @@ $(function() {
 		clearInterval(timer);
 		timer = setInterval(perSec, 1000);
 		$('#stop').val('active').slider('refresh');
-		$('#timer').removeClass('stopped');
+		$('#timer').removeClass('stopped').removeClass('over');
 	});
 	
 	// 一時停止ボタン
