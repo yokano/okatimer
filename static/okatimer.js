@@ -33,19 +33,23 @@ $(function() {
 		$('#start_page #sec').html(0);
 		clearInterval(timer);
 		timer = setInterval(perSec, 1000);
-		
-		// 一時停止ボタン
-		$('#stop').bind('change', function(event, ui) {
-			if($('#stop :selected').val() == 'active') {
-				timer = setInterval(perSec, 1000);
-				$('#timer').removeClass('stopped');
-			} else {
-				clearInterval(timer);
-				$('#timer').addClass('stopped');
-			}
-		});
+		$('#stop').val('active').slider('refresh');
+		$('#timer').removeClass('stopped');
 	});
 	
+	// 一時停止ボタン
+	$('#stop').bind('change', function(event, ui) {
+		if($('#stop :selected').val() == 'active') {
+			timer = setInterval(perSec, 1000);
+			$('#timer').removeClass('stopped');
+		} else {
+			clearInterval(timer);
+			$('#timer').addClass('stopped');
+		}
+	});
+	
+	// 以下 初期化
 	// アプリにアクセスしたら入力画面へ飛ばす
 	$.mobile.changePage($('#input_page'));
+	$('#stop').slider();
 });
