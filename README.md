@@ -27,3 +27,6 @@ okatimerは仕事をタイムアタック感覚で素早く取り組むための
 Google App Engine 上で動作しています。  
 サーバの言語はGoを使用しています。  
 <https://appengine.google.com>
+
+## 連絡先
+yuta.okano@gmail.com
