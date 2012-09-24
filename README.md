@@ -1,10 +1,9 @@
 # おかたいま〜
-[!][using](http://cloud.github.com/downloads/yokano/okatimer/using.jpg)
-## 概要
 okatimerは仕事をタイムアタック感覚で素早く取り組むためのタイマーアプリです。  
 仕事を始めてからの経過時間と、挑戦する目標時間がリアルタイムに表示されます。  
 経過時間が目標時間を超える前にタイムアタック感覚で仕事をこなすことができます。  
 パソコンでもスマートフォンでも使用できます。
+![](http://cloud.github.com/downloads/yokano/okatimer/using.jpg)
 
 ## 使い方
 1. Webブラウザで以下のURLを開く  
