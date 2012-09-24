@@ -2,15 +2,25 @@ $(function() {
 	var elapsedTime = 0;
 	var targetTime = 0;
 	var timer = null;
+	var startTime = null;
+	
+	var now = function() {
+		return Math.floor((new Date()).getTime() / 1000);
+	};
 	
 	var perSec = function() {
-		if(elapsedTime >= targetTime) {
-			$('#start_page #timer').addClass('over');
+		elapsedTime = now() - startTime;
+		if($('#stop :selected').val() == 'inactive') {
+			startTime++;
+			console.log('sto');
+		} else {
+			if(elapsedTime >= targetTime) {
+				$('#start_page #timer').addClass('over');
+			}
+			$('#start_page #hour').html(Math.floor(elapsedTime / 3600));
+			$('#start_page #min').html(Math.floor(elapsedTime % 3600 / 60));
+			$('#start_page #sec').html(Math.floor(elapsedTime % 60));
 		}
-		$('#start_page #hour').html(Math.floor(elapsedTime / 3600));
-		$('#start_page #min').html(Math.floor(elapsedTime % 3600 / 60));
-		$('#start_page #sec').html(Math.floor(elapsedTime % 60));
-		elapsedTime++;
 	};
 	
 	$('#input_page #start').click(function() {
@@ -27,7 +37,7 @@ $(function() {
 		targetTime = targetHour * 3600 + targetMin * 60;
 		
 		// 経過時間をリセット
-		elapsedTime = 0;
+		startTime = now();
 		$('#start_page #hour').html(0);
 		$('#start_page #min').html(0);
 		$('#start_page #sec').html(0);
@@ -40,10 +50,8 @@ $(function() {
 	// 一時停止ボタン
 	$('#stop').bind('change', function(event, ui) {
 		if($('#stop :selected').val() == 'active') {
-			timer = setInterval(perSec, 1000);
 			$('#timer').removeClass('stopped');
 		} else {
-			clearInterval(timer);
 			$('#timer').addClass('stopped');
 		}
 	});
