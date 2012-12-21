@@ -8,14 +8,28 @@ $(function() {
 		return Math.floor((new Date()).getTime() / 1000);
 	};
 	
+	// 目標時間を超えた時の処理　呼び出し１回目だけ実行される
+	var timeOver = function() {
+		var isOver = false;
+		var over = function() {
+			if(!isOver) {
+				$('#start_page #timer').addClass('over');
+				var se = $('#over_se').get(0);
+				se.play();
+				isOver = true;
+			}
+		};
+		return over;
+	}();
+	
 	var perSec = function() {
 		elapsedTime = now() - startTime;
 		if($('#stop :selected').val() == 'inactive') {
 			startTime++;
-			console.log('sto');
 		} else {
-			if(elapsedTime >= targetTime) {
-				$('#start_page #timer').addClass('over');
+			// 目標時間オーバー
+			if(elapsedTime > targetTime) {
+				timeOver();
 			}
 			$('#start_page #hour').html(Math.floor(elapsedTime / 3600));
 			$('#start_page #min').html(Math.floor(elapsedTime % 3600 / 60));

@@ -2,8 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>おかたいま〜</title>
+		<title>OkaTimer</title>
+		<link rel="shortcut icon" href="/static/favicon.ico"></link>
+		<link rel="apple-touch-icon" href="/static/ios.png"></link>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		<link rel="stylesheet" href="/static/okatimer.css"></link>
 		<script src="/static/jquery-1.8.2.min.js"></script>
 		<link rel="stylesheet" href="/static/jquery.mobile-1.1.1.min.css"></link>
@@ -16,8 +19,8 @@
 		<div id="input_page" data-role="page">
 		
 			<!-- header -->
-			<div data-role="header" data-theme="c">
-				<h1> </h1>
+			<div id="header" data-role="header" data-theme="c">
+				<img src="/static/images/logo.png" />
 			</div>
 			
 			<!-- content -->
@@ -67,7 +70,7 @@
 							<!-- min -->
 							<select data-theme="c" name="min" id="min">
 								<option value="0">0 分</option>
-								<option value="5">5 分</option>
+								<option value="1">5 分</option>
 								<option value="10">10 分</option>
 								<option value="15">15 分</option>
 								<option value="20">20 分</option>
@@ -126,6 +129,11 @@
 			<!-- footer -->
 			<div data-role="footer" data-theme="c"><h1>Copyright &copy; 2012 yuta.okano@gmail.com</h1></div>
 		</div>
-
+		
+		<!-- audio -->
+		<audio id="over_se" preload>
+			<source src="/static/sounds/alert.ogg" />
+			<source src="/static/sounds/alert.mp3" />
+		</audio>
 	</body>
 </html>
