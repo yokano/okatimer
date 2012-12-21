@@ -1,30 +1,26 @@
-# おかたいま〜
+# OkaTimer
 ---
-okatimerは仕事をタイムアタック感覚で素早く取り組むためのタイマーアプリです。  
-仕事を始めてからの経過時間と、挑戦する目標時間がリアルタイムに表示されます。  
-パソコンでもスマートフォンでも使用できます。  
+OkaTimer is timer application for doing your task more quickly.  
+It display the target time and elapsed time from start.  
+You can use this application by either desktop or smartphone.   
 ![](http://cloud.github.com/downloads/yokano/okatimer/using.jpg)
 
-## 使い方
-1. Webブラウザで以下のURLを開く  
+## Usage
+1. Open this URL  
 <http://okatimer.appspot.com/>
 
-2. やることと制限時間を決めたらスタートボタンでタイマーを開始する
+2. After input to task name and choose target times, push start button.
 
-3. 画面下のトグルスイッチで一時停止・再開を切り替える
+3. You can switch RUN and Stop by toggle switch.
 
-4. 仕事が終わったら経過時間を確認する
+4. Finish your task, check the elapsed time.
 
-5. 次の仕事をするときは戻るボタンで再び入力画面へ移動
+5. If you want next task, push back button and input next one.
 
-## 注意
-* タスクの実行は１つまで
-* 制限時間は「5分~24時間55分」の範囲から5分刻みで設定できる
+## Notice
+* This application can runs one task only.
+* Target time is limited from "0h 5min" to "24h 55min".  
+* No alert when the smartphone is slept. 
 
-## 環境
-Google App Engine 上で動作しています。  
-サーバの言語はGoを使用しています。  
-<https://appengine.google.com>
-
-## 連絡先
+## Contact
 yuta.okano@gmail.com
