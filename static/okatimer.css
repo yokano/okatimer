@@ -57,3 +57,8 @@
 	width: 0px;
 	background-color: blue;
 }
+
+#language_div {
+	position: absolute;
+	right: 50px;
+}

@@ -29,13 +29,13 @@
 					
 					<!-- task name -->
 					<div data-role="fieldcontain">
-						<label for="task">やること: </label>
+						<label id="task_label" for="task">やること: </label>
 						<input id="task" type="text" name="task"></input>
 					</div>
 					
 					<!-- target time -->
 					<div data-role="fieldcontain">
-						<label>制限時間: </label>
+						<label id="target_time_label">目標時間: </label>
 						<fieldset data-role="controlgroup" data-type="horizontal">
 						
 							<!-- hour -->
@@ -89,6 +89,12 @@
 					</div>
 				</form>
 				
+				<!-- language button -->
+				<div id="language_div" data-role="controlgroup" data-type="horizontal">
+					<a id="ja" class="lang_button" data-role="button" data-theme="b">Japanese</a>
+					<a id="en" class="lang_button" data-role="button" data-theme="a">English</a>
+				</div>
+
 				<!-- start button -->
 				<a id="start" href="#start_page" data-role="button" data-inline="true" data-transition="flip">スタート</a>
 			</div>
@@ -103,7 +109,7 @@
 		<div id="start_page" data-role="page">
 			<!-- header -->
 			<div data-role="header" data-theme="c">
-				<a data-rel="back" data-icon="arrow-l">戻る</a>
+				<a id="back_button" data-rel="back" data-icon="arrow-l">戻る</a>
 				<h1> </h1>
 			</div>
 			
@@ -111,18 +117,18 @@
 			<div data-role="content" data-theme="b">
 				<h1 id="task"></h1>
 				<div id="timer">
-					<span id="hour"></span><span class="mini">時間</span>
-					<span id="min"></span><span class="mini">分</span>
-					<span id="sec"></span><span class="mini">秒</span>
+					<span id="hour"></span><span class="mini hour_label">時間</span>
+					<span id="min"></span><span class="mini min_label">分</span>
+					<span id="sec"></span><span class="mini sec_label">秒</span>
 				</div>
 				<div id="gauge_gray"><div id="gauge_green"></div></div>
 				<div id="target" class="mini">
-						目標：<span id="target_hour"></span>時間 <span id="target_min"></span>分 <span id="target_sec"></span>秒
+						<span id="target_label">目標：</span><span id="target_hour"></span><span class="hour_label">時間</span> <span id="target_min"></span><span class="min_label">分</span> <span id="target_sec"></span><span class="sec_label">秒</span>
 				</div>
 				<form>
 					<select id="stop" data-role="slider">
-						<option value="active">実行中</option>
-						<option value="inactive">停止中</option>
+						<option id="active" value="active">実行中</option>
+						<option id="inactive" value="inactive">停止中</option>
 					</select>
 				</form>
 			</div>

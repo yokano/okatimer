@@ -3,6 +3,7 @@ $(function() {
 	var targetTime = 0;
 	var timer = null;
 	var startTime = null;
+	var lang = 'ja';
 	
 	var now = function() {
 		return Math.floor((new Date()).getTime() / 1000);
@@ -47,7 +48,7 @@ $(function() {
 		var targetHour = $('#input_page #hour :selected').val();
 		var targetMin = $('#input_page #min :selected').val();
 		if(targetHour == 0 && targetMin == 0) {
-			alert('目標時間を設定してください');
+			alert(term[lang].input_target_time);
 			return false;
 		}
 		
@@ -78,6 +79,64 @@ $(function() {
 		} else {
 			$('#timer').addClass('stopped');
 		}
+	});
+
+	// 言語変更	l = 'ja' or 'en'
+	var term = {
+		en: {
+			task: 'Task',
+			target_time: 'Target time',
+			hour: 'hour',
+			min: 'min',
+			second: 'sec',
+			start: 'Start',
+			target: 'Target',
+			active: 'Run',
+			inactive: 'Stop',
+			input_target_time: 'Please choose the target time.',
+			back: 'Back'
+		},
+		
+		ja: {
+			task: 'やること',
+			target_time: '目標時間',
+			hour: '時間',
+			min: '分',
+			second: '秒',
+			start: 'スタート',
+			target: '目標',
+			active: '実行中',
+			inactive: '停止中',
+			input_target_time: '目標時間を設定してください',
+			back: '戻る'
+		}
+	};
+	var updateLanguage = function(l) {
+		lang = l;
+		$('#input_page #task_label').html(term[lang].task);
+		$('#input_page #target_time_label').html(term[lang].target_time);
+		$('#input_page #hour option').each(function() {
+			$(this).html($(this).val() + ' ' + term[lang].hour);
+		});
+		$('#input_page #hour').selectmenu('refresh');
+		$('#input_page #min option').each(function() {
+			$(this).html($(this).val() + ' ' + term[lang].min);
+		});
+		$('#input_page #min').selectmenu('refresh');
+		$('#input_page #start .ui-btn-text').html(term[lang].start);
+		$('#start_page #back_button .ui-btn-text').html(term[lang].back);
+		$('#start_page .hour_label').html(term[lang].hour);
+		$('#start_page .min_label').html(term[lang].min);
+		$('#start_page .sec_label').html(term[lang].second);
+		$('#start_page #target_label').html(term[lang].target_time + ': ');
+		$('#start_page .ui-slider-label-b').html(term[lang].active);
+		$('#start_page .ui-slider-label-a').html(term[lang].inactive);
+	};
+	$('.lang_button').click(function() {
+		var l = $(this).attr('id');
+		updateLanguage(l);
+		$('.lang_button').attr('data-theme', 'a');
+		$(this).attr('data-theme', 'b')
 	});
 	
 	// 以下 初期化
