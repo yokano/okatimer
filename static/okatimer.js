@@ -16,12 +16,14 @@ $(function() {
 				$('#start_page #timer').addClass('over');
 				var se = $('#over_se').get(0);
 				se.play();
+				gauge_green.css('background-color', 'red');
 				isOver = true;
 			}
 		};
 		return over;
 	}();
 	
+	var gauge_green = $('#gauge_green');
 	var perSec = function() {
 		elapsedTime = now() - startTime;
 		if($('#stop :selected').val() == 'inactive') {
@@ -30,6 +32,9 @@ $(function() {
 			// 目標時間オーバー
 			if(elapsedTime > targetTime) {
 				timeOver();
+			} else {
+				// ゲージをすすめる
+				gauge_green.css('width', (elapsedTime / targetTime) * 300);
 			}
 			$('#start_page #hour').html(Math.floor(elapsedTime / 3600));
 			$('#start_page #min').html(Math.floor(elapsedTime % 3600 / 60));
@@ -38,13 +43,18 @@ $(function() {
 	};
 	
 	$('#input_page #start').click(function() {
+		// 0時間0分の場合は実行しない
+		var targetHour = $('#input_page #hour :selected').val();
+		var targetMin = $('#input_page #min :selected').val();
+		if(targetHour == 0 && targetMin == 0) {
+			alert('目標時間を設定してください');
+			return false;
+		}
 		
 		// タスク名をセット
 		$('#start_page #task').html($('#input_page #task').val());
 		
 		// 目標時間をセット
-		var targetHour = $('#input_page #hour :selected').val();
-		var targetMin = $('#input_page #min :selected').val();
 		$('#start_page #target_hour').html(targetHour);
 		$('#start_page #target_min').html(targetMin);
 		$('#start_page #target_sec').html(0);
