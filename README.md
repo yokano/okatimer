@@ -1,5 +1,3 @@
-# OkaTimer
----
 OkaTimer is timer application for doing your task more quickly.  
 It display the target time and elapsed time from start.  
 You can use this application by either desktop or smartphone.   
