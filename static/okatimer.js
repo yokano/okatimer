@@ -70,6 +70,7 @@ $(function() {
 		timer = setInterval(perSec, 1000);
 		$('#stop').val('active').slider('refresh');
 		$('#timer').removeClass('stopped').removeClass('over');
+		gauge_green.css('background-color', 'blue');
 	});
 	
 	// 一時停止ボタン
